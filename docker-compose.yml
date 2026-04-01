@@ -14,7 +14,4 @@ services:
       RATE_LIMIT_REQUESTS: 600
       RATE_LIMIT_WINDOW_SECONDS: 60
     volumes:
-      - sqlite_data:/data
-
-volumes:
-  sqlite_data:
+      - ./app_data:/data

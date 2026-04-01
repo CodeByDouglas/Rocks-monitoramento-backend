@@ -45,7 +45,7 @@ class Machine(Base, TimestampMixin):
     owner_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     owner: Mapped[User] = relationship(back_populates="machines")
-    configuration: Mapped["MachineConfiguration" | None] = relationship(
+    configuration: Mapped["MachineConfiguration"] = relationship(
         back_populates="machine", uselist=False, cascade="all, delete-orphan"
     )
     metrics: Mapped[list["MonitoringData"]] = relationship(
